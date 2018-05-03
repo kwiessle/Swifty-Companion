@@ -26,8 +26,8 @@ struct User: Decodable {
         case displayName = "displayname"
         case correctionPoint = "correction_point"
         case imageUrl = "image_url"
-    }
 
+    }
 }
 
 

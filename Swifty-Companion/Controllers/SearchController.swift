@@ -8,17 +8,28 @@
 
 import UIKit
 
-class HomeController : UIViewController {
+class SearchController : UIViewController {
 
     var logins : [Login]?
     let cellID = "loginCell"
 
-    let searchField : CustomTextField = {
-        let field = CustomTextField()
-        field.layer.borderColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1).cgColor
+    
+    lazy var profilController : ProfilController = {
+        let layout = UICollectionViewFlowLayout()
+        var controller = ProfilController(collectionViewLayout: layout)
+        return controller
+    }()
+
+    
+    let searchField : ZDTextField = {
+        let field = ZDTextField()
+        field.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.15).cgColor
         field.layer.borderWidth = 1
+        field.attributedPlaceholder = NSAttributedString(string: "xlogin", attributes: [NSAttributedStringKey.foregroundColor : UIColor(white: 1, alpha: 0.8)])
+        field.autocapitalizationType = .none
         field.layer.cornerRadius = 5
-        field.textColor = .red
+        field.textColor = .white
+        field.backgroundColor = UIColor(white: 0, alpha: 0.3)
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
@@ -27,7 +38,7 @@ class HomeController : UIViewController {
     let searchButton : UIButton = {
         let button = UIButton()
         button.setTitle("search", for: .normal)
-        button.backgroundColor = .red
+        button.backgroundColor = ZDTools.shared.colors.green
         button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(handleSearch), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -42,25 +53,28 @@ class HomeController : UIViewController {
         view.addSubview(searchField)
         view.addSubview(searchButton)
         
+//        navigationController?.navigationBar.isHidden = true
         
+        
+        let background = ZDTools.shared.addBackground(image: "companion-background")
+        view.addSubview(background)
+        view.sendSubview(toBack: background)
         setConstraints()
-    }
-    
-    @objc func handleSearch() {
-        guard let login = searchField.text else { return }
-        guard let request = APIServices.shared.createRequest(for: "/v2/users/\(login)") else { return }
-        
-        RequestService.shared.get(req: request, for: User.self) { data in
-            if let data = data {
-                print(data)
-            }
-        }
         
     }
-}
     
 
-extension HomeController {
+    
+    @objc func handleSearch() {
+
+        self.profilController.target = searchField.text?.trim()
+        self.navigationController?.pushViewController(self.profilController, animated: true)
+    }
+}
+
+
+
+extension SearchController {
     
     func setConstraints() {
         
@@ -78,24 +92,29 @@ extension HomeController {
     
 }
 
-class CustomTextField:UITextField{
-    
-    required init?(coder aDecoder: NSCoder){
-        super.init(coder: aDecoder)
+extension SearchController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return CGRect.init(x: bounds.origin.x + 8, y: bounds.origin.y, width: bounds.width, height: bounds.height)
-    }
     
-    override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return self.textRect(forBounds:bounds)
+}
+
+extension String
+{
+    func trim() -> String
+    {
+        return self.trimmingCharacters(in: NSCharacterSet.whitespaces)
     }
 }
+
+
 
 
 

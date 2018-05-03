@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FB285EC620990AF500ADA7D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EC520990AF500ADA7D4 /* AppDelegate.swift */; };
-		FB285EC820990AF500ADA7D4 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EC720990AF500ADA7D4 /* HomeController.swift */; };
+		FB285EC820990AF500ADA7D4 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EC720990AF500ADA7D4 /* SearchController.swift */; };
 		FB285ECD20990AF500ADA7D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB285ECC20990AF500ADA7D4 /* Assets.xcassets */; };
 		FB285ED020990AF500ADA7D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB285ECE20990AF500ADA7D4 /* LaunchScreen.storyboard */; };
 		FB285EDA209910C200ADA7D4 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285ED9209910C200ADA7D4 /* RequestService.swift */; };
@@ -16,12 +16,19 @@
 		FB285EDF2099176C00ADA7D4 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EDE2099176C00ADA7D4 /* LoginCell.swift */; };
 		FB285EE220991E8F00ADA7D4 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EE120991E8F00ADA7D4 /* APIServices.swift */; };
 		FB285EE4209A564200ADA7D4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EE3209A564200ADA7D4 /* User.swift */; };
+		FBCD5F17209B060D0058210B /* ZDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD5F16209B060D0058210B /* ZDTextField.swift */; };
+		FBCD5F19209B06DF0058210B /* ZDTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD5F18209B06DF0058210B /* ZDTools.swift */; };
+		FBCD5F1C209B0B6E0058210B /* ZDColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD5F1B209B0B6E0058210B /* ZDColors.swift */; };
+		FBCD5F1E209B146C0058210B /* ProfilController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD5F1D209B146C0058210B /* ProfilController.swift */; };
+		FBCD5F20209B3FC70058210B /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD5F1F209B3FC70058210B /* Menu.swift */; };
+		FBCD5F22209B40030058210B /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD5F21209B40030058210B /* MenuCell.swift */; };
+		FBCD5F24209B4E740058210B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD5F23209B4E740058210B /* UserCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FB285EC220990AF500ADA7D4 /* Swifty-Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty-Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB285EC520990AF500ADA7D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB285EC720990AF500ADA7D4 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		FB285EC720990AF500ADA7D4 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		FB285ECC20990AF500ADA7D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB285ECF20990AF500ADA7D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB285ED120990AF500ADA7D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -30,6 +37,13 @@
 		FB285EDE2099176C00ADA7D4 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 		FB285EE120991E8F00ADA7D4 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		FB285EE3209A564200ADA7D4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FBCD5F16209B060D0058210B /* ZDTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDTextField.swift; sourceTree = "<group>"; };
+		FBCD5F18209B06DF0058210B /* ZDTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDTools.swift; sourceTree = "<group>"; };
+		FBCD5F1B209B0B6E0058210B /* ZDColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDColors.swift; sourceTree = "<group>"; };
+		FBCD5F1D209B146C0058210B /* ProfilController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilController.swift; sourceTree = "<group>"; };
+		FBCD5F1F209B3FC70058210B /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		FBCD5F21209B40030058210B /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		FBCD5F23209B4E740058210B /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +60,7 @@
 		FB285EB920990AF500ADA7D4 = {
 			isa = PBXGroup;
 			children = (
+				FB285EE02099177100ADA7D4 /* Views */,
 				FB285EC420990AF500ADA7D4 /* Swifty-Companion */,
 				FB285EC320990AF500ADA7D4 /* Products */,
 			);
@@ -63,12 +78,13 @@
 			isa = PBXGroup;
 			children = (
 				FB285EC520990AF500ADA7D4 /* AppDelegate.swift */,
-				FB285EE02099177100ADA7D4 /* Views */,
 				FB285EDD209911DF00ADA7D4 /* Models */,
 				FB285ED8209910A700ADA7D4 /* APIServices */,
 				FB285ED720990B8C00ADA7D4 /* Controllers */,
 				FB285ECC20990AF500ADA7D4 /* Assets.xcassets */,
 				FB285ECE20990AF500ADA7D4 /* LaunchScreen.storyboard */,
+				FBCD5F1A209B08EB0058210B /* ZDTools */,
+				FBCD5F15209B05E00058210B /* Overrides */,
 				FB285ED120990AF500ADA7D4 /* Info.plist */,
 			);
 			path = "Swifty-Companion";
@@ -77,7 +93,8 @@
 		FB285ED720990B8C00ADA7D4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FB285EC720990AF500ADA7D4 /* HomeController.swift */,
+				FB285EC720990AF500ADA7D4 /* SearchController.swift */,
+				FBCD5F1D209B146C0058210B /* ProfilController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -104,8 +121,28 @@
 			isa = PBXGroup;
 			children = (
 				FB285EDE2099176C00ADA7D4 /* LoginCell.swift */,
+				FBCD5F1F209B3FC70058210B /* Menu.swift */,
+				FBCD5F21209B40030058210B /* MenuCell.swift */,
+				FBCD5F23209B4E740058210B /* UserCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FBCD5F15209B05E00058210B /* Overrides */ = {
+			isa = PBXGroup;
+			children = (
+				FBCD5F16209B060D0058210B /* ZDTextField.swift */,
+			);
+			path = Overrides;
+			sourceTree = "<group>";
+		};
+		FBCD5F1A209B08EB0058210B /* ZDTools */ = {
+			isa = PBXGroup;
+			children = (
+				FBCD5F18209B06DF0058210B /* ZDTools.swift */,
+				FBCD5F1B209B0B6E0058210B /* ZDColors.swift */,
+			);
+			path = ZDTools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,12 +216,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB285EC820990AF500ADA7D4 /* HomeController.swift in Sources */,
+				FBCD5F19209B06DF0058210B /* ZDTools.swift in Sources */,
+				FBCD5F1E209B146C0058210B /* ProfilController.swift in Sources */,
+				FBCD5F20209B3FC70058210B /* Menu.swift in Sources */,
+				FB285EC820990AF500ADA7D4 /* SearchController.swift in Sources */,
 				FB285EE220991E8F00ADA7D4 /* APIServices.swift in Sources */,
 				FB285EDA209910C200ADA7D4 /* RequestService.swift in Sources */,
+				FBCD5F24209B4E740058210B /* UserCell.swift in Sources */,
+				FBCD5F17209B060D0058210B /* ZDTextField.swift in Sources */,
+				FBCD5F1C209B0B6E0058210B /* ZDColors.swift in Sources */,
 				FB285EDF2099176C00ADA7D4 /* LoginCell.swift in Sources */,
 				FB285EC620990AF500ADA7D4 /* AppDelegate.swift in Sources */,
 				FB285EDC2099116500ADA7D4 /* Login.swift in Sources */,
+				FBCD5F22209B40030058210B /* MenuCell.swift in Sources */,
 				FB285EE4209A564200ADA7D4 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
