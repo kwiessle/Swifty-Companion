@@ -11,9 +11,16 @@ import UIKit
 class UserCell: UICollectionViewCell {
     
     var user : User? {
+        willSet {
+            picture.image = UIImage()
+            name.text = nil
+            location.text = nil
+        }
         didSet {
             downloadImage()
             name.text = self.user?.displayName
+            if let location = self.user?.location { self.location.text = location }
+            else { self.location.text = "Unavailable" }
         }
     }
     
@@ -37,6 +44,15 @@ class UserCell: UICollectionViewCell {
         return label
     }()
     
+    let location : UILabel = {
+        let label = UILabel()
+        label.textColor = ZDTools.shared.colors.green
+        label.text = "Unavailable"
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,6 +60,7 @@ class UserCell: UICollectionViewCell {
         
         addSubview(picture)
         addSubview(name)
+        addSubview(location)
         
         setLayout()
         
@@ -60,6 +77,10 @@ class UserCell: UICollectionViewCell {
         name.topAnchor.constraint(equalTo: picture.bottomAnchor, constant: 20).isActive = true
         name.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         name.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        location.topAnchor.constraint(equalTo: name.bottomAnchor).isActive = true
+        location.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        location.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
     }
     

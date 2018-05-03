@@ -72,16 +72,21 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
       
         
 //        downloadImage()
-        
+      
+    
+  
+    }
+    
+    func fetchUser() {
         guard let login = target else { return }
         guard let request = APIServices.shared.createRequest(for: "/v2/users/\(login)") else { return }
-    
+        
         RequestService.shared.get(req: request, for: User.self) { [unowned self] data in
             if let data = data {
                 print(data)
                 self.user = data
                 self.collectionView?.reloadData()
-      
+                
             }
         }
     }

@@ -68,6 +68,7 @@ class SearchController : UIViewController {
     @objc func handleSearch() {
 
         self.profilController.target = searchField.text?.trim()
+        self.profilController.fetchUser()
         self.navigationController?.pushViewController(self.profilController, animated: true)
     }
 }
