@@ -8,47 +8,94 @@
 
 import UIKit
 
-class HomeController : UITableViewController {
+class HomeController : UIViewController {
 
     var logins : [Login]?
     let cellID = "loginCell"
-    let api = RequestService.shared
+
+    let searchField : CustomTextField = {
+        let field = CustomTextField()
+        field.layer.borderColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1).cgColor
+        field.layer.borderWidth = 1
+        field.layer.cornerRadius = 5
+        field.textColor = .red
+        field.translatesAutoresizingMaskIntoConstraints = false
+        return field
+    }()
     
+    
+    let searchButton : UIButton = {
+        let button = UIButton()
+        button.setTitle("search", for: .normal)
+        button.backgroundColor = .red
+        button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(handleSearch), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.register(LoginCell.self, forCellReuseIdentifier: cellID)
+
         view.backgroundColor = .black
-        getCatalog()
+        view.addSubview(searchField)
+        view.addSubview(searchButton)
+        
+        
+        setConstraints()
     }
     
-
-    func getCatalog() {
-        guard let request = APIServices.shared.createRequest(for: "/v2/users") else { print("zr"); return }
-        print("zdl=k")
-        RequestService.shared.get(req: request, for: [Login].self) { data in
-            self.logins = data
-            self.tableView.reloadData()
+    @objc func handleSearch() {
+        guard let login = searchField.text else { return }
+        guard let request = APIServices.shared.createRequest(for: "/v2/users/\(login)") else { return }
+        
+        RequestService.shared.get(req: request, for: User.self) { data in
+            if let data = data {
+                print(data)
+            }
         }
-    }}
-
+        
+    }
+}
+    
 
 extension HomeController {
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return logins?.count ?? 0
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! LoginCell
-        cell.login = logins?[indexPath.item]
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.frame.height / 12
+    func setConstraints() {
+        
+        
+        searchField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        searchField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -33).isActive = true
+        searchField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 33).isActive = true
+        searchField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
+        
+        searchButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        searchButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -33).isActive = true
+        searchButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 33).isActive = true
+        searchButton.topAnchor.constraint(equalTo: searchField.safeAreaLayoutGuide.bottomAnchor, constant: 35).isActive = true
     }
     
 }
+
+class CustomTextField:UITextField{
+    
+    required init?(coder aDecoder: NSCoder){
+        super.init(coder: aDecoder)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return CGRect.init(x: bounds.origin.x + 8, y: bounds.origin.y, width: bounds.width, height: bounds.height)
+    }
+    
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return self.textRect(forBounds:bounds)
+    }
+}
+
+
+

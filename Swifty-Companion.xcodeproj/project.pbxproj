@@ -15,6 +15,7 @@
 		FB285EDC2099116500ADA7D4 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EDB2099116500ADA7D4 /* Login.swift */; };
 		FB285EDF2099176C00ADA7D4 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EDE2099176C00ADA7D4 /* LoginCell.swift */; };
 		FB285EE220991E8F00ADA7D4 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EE120991E8F00ADA7D4 /* APIServices.swift */; };
+		FB285EE4209A564200ADA7D4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EE3209A564200ADA7D4 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FB285EDB2099116500ADA7D4 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		FB285EDE2099176C00ADA7D4 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 		FB285EE120991E8F00ADA7D4 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
+		FB285EE3209A564200ADA7D4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				FB285EDB2099116500ADA7D4 /* Login.swift */,
+				FB285EE3209A564200ADA7D4 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				FB285EDF2099176C00ADA7D4 /* LoginCell.swift in Sources */,
 				FB285EC620990AF500ADA7D4 /* AppDelegate.swift in Sources */,
 				FB285EDC2099116500ADA7D4 /* Login.swift in Sources */,
+				FB285EE4209A564200ADA7D4 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
