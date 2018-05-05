@@ -24,8 +24,14 @@ class UserCell: UICollectionViewCell {
             if let login = self.user?.login { self.loginItem.text = login }
             if let phone = self.user?.phone { self.phoneItem.text = phone }
             if let mail = self.user?.email { self.mailItem.text = mail }
-            
-        addSubview(setProgressBar())
+       
+            for view in subviews {
+                if (view.viewWithTag(2212) != nil) {
+                    view.removeFromSuperview()
+                }
+            }
+            addSubview(setProgressBar())
+       
         }
     }
     
@@ -135,6 +141,10 @@ class UserCell: UICollectionViewCell {
         
     }
     
+    override func willTransition(from oldLayout: UICollectionViewLayout, to newLayout: UICollectionViewLayout) {
+        oldLayout.invalidateLayout()
+        
+    }
     
     func setProgressBar() -> UIView {
         
@@ -147,6 +157,7 @@ class UserCell: UICollectionViewCell {
         holder.layer.borderWidth = 2
         holder.layer.cornerRadius = 5
         holder.clipsToBounds = true
+        holder.tag = 2212
         
         let percent = level.truncatingRemainder(dividingBy: 1.0)
         let label = UITextView(frame: CGRect(x: 0, y: -3, width: 280, height: 30))
@@ -173,7 +184,8 @@ class UserCell: UICollectionViewCell {
         shadowView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 120).isActive = true
         shadowView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 22.5).isActive = true
         shadowView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -22.5).isActive = true
-        shadowView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -22.5).isActive = true
+//        shadowView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -22.5).isActive = true
+        shadowView.heightAnchor.constraint(equalToConstant: 390).isActive = true
         
         picture.widthAnchor.constraint(equalToConstant: 140).isActive = true
         picture.heightAnchor.constraint(equalToConstant: 140).isActive = true

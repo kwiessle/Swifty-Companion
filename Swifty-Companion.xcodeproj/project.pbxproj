@@ -100,7 +100,6 @@
 				FB285ECC20990AF500ADA7D4 /* Assets.xcassets */,
 				FB285ECE20990AF500ADA7D4 /* LaunchScreen.storyboard */,
 				FBCD5F1A209B08EB0058210B /* ZDTools */,
-				FBCD5F15209B05E00058210B /* Overrides */,
 				FB285ED120990AF500ADA7D4 /* Info.plist */,
 			);
 			path = "Swifty-Companion";
@@ -152,19 +151,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		FBCD5F15209B05E00058210B /* Overrides */ = {
-			isa = PBXGroup;
-			children = (
-				FBCD5F16209B060D0058210B /* ZDTextField.swift */,
-			);
-			path = Overrides;
-			sourceTree = "<group>";
-		};
 		FBCD5F1A209B08EB0058210B /* ZDTools */ = {
 			isa = PBXGroup;
 			children = (
 				FBCD5F18209B06DF0058210B /* ZDTools.swift */,
 				FBCD5F1B209B0B6E0058210B /* ZDColors.swift */,
+				FBCD5F16209B060D0058210B /* ZDTextField.swift */,
 			);
 			path = ZDTools;
 			sourceTree = "<group>";

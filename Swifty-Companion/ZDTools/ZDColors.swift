@@ -13,7 +13,12 @@ class ZDColors {
     
     
     let green : UIColor = {
-        return UIColor(red: 0.00, green: 0.66, blue: 0.62, alpha: 1.0)
+//        return UIColor(red: 0.00, green: 0.66, blue: 0.62, alpha: 1.0)
+        return UIColor(red:0.12, green:0.73, blue:0.73, alpha:1.0)
+    }()
+
+    let orange : UIColor = {
+        return UIColor(red:1.00, green:0.61, blue:0.39, alpha:1.0)
     }()
     
     let foreground : UIColor = {
