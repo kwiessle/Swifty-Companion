@@ -20,10 +20,12 @@ struct ProjectInfos : Decodable {
 struct Project : Decodable {
     let finalMark : Int?
     let infos : ProjectInfos
+    let validated : Bool?
     
     private enum CodingKeys: CodingKey, String {
         case finalMark = "final_mark"
         case infos = "project"
+        case validated = "validated?"
         
     }
     

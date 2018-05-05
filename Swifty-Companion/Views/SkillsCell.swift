@@ -1,19 +1,17 @@
 //
-//  ResultsCell.swift
+//  SkillsCell.swift
 //  Swifty-Companion
 //
-//  Created by Kiefer Wiessler on 03/05/2018.
+//  Created by Kiefer Wiessler on 05/05/2018.
 //  Copyright © 2018 Kiefer Wiessler. All rights reserved.
 //
 
 import UIKit
 
-
-
-class ResultsCell: UICollectionViewCell, UITableViewDataSource, UITableViewDelegate {
-
+class SkillsCell: UICollectionViewCell, UITableViewDataSource, UITableViewDelegate {
     
-    var projects : [Project]? {
+    
+    var skills : [Skills]? {
         didSet {
             self.tableView.reloadData()
         }
@@ -22,6 +20,7 @@ class ResultsCell: UICollectionViewCell, UITableViewDataSource, UITableViewDeleg
     lazy var tableView : UITableView = {
         let view = UITableView(frame: frame)
         view.allowsSelection = false
+        view.separatorColor = .none
         view.delegate = self
         view.dataSource = self
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -35,10 +34,9 @@ class ResultsCell: UICollectionViewCell, UITableViewDataSource, UITableViewDeleg
         addSubview(tableView)
         
         tableView.register(ProjectCell.self, forCellReuseIdentifier: "id")
-        
         tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.backgroundColor = ZDTools.shared.colors.background
     }
@@ -48,23 +46,22 @@ class ResultsCell: UICollectionViewCell, UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return projects?.count ?? 0
+        return skills?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "id", for: indexPath) as! ProjectCell
         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, UIScreen.main.bounds.width)
+        
         cell.backgroundColor = indexPath.item % 2 == 1 ? .none : UIColor(white: 0, alpha: 0.12)
         
-        guard let data = projects else { return cell }
         
-        guard let mark = data[indexPath.item].finalMark else { return cell }
-        guard let validated = data[indexPath.item].validated else { return cell }
-        let name = data[indexPath.item].infos.name
-        
+        guard let data = self.skills else { return cell }
+        guard let name = data[indexPath.item].name else { return cell }
+        let level = data[indexPath.item].level
         cell.name.text = name
-        cell.mark.text = String(mark)
-        cell.mark.textColor = validated ? ZDTools.shared.colors.success : ZDTools.shared.colors.failure
+        cell.mark.text = String(level)
+        cell.mark.textColor = ZDTools.shared.colors.success
         return cell
     }
     

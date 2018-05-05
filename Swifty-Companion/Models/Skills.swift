@@ -1,21 +1,20 @@
 //
-//  Cursus.swift
+//  Skills.swift
 //  Swifty-Companion
 //
-//  Created by Kiefer Wiessler on 03/05/2018.
+//  Created by Kiefer Wiessler on 05/05/2018.
 //  Copyright © 2018 Kiefer Wiessler. All rights reserved.
 //
 
 import Foundation
 
 
-struct Cursus : Decodable {
-    let grade : String?
+struct Skills : Decodable {
+    let name : String?
     let level : Double
-    let skills : [Skills]
     
     private enum CodingKeys: String, CodingKey {
-        case grade, level, skills
+        case name, level
     }
     
 }

@@ -30,7 +30,8 @@ class ProjectCell : UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = ZDTools.shared.colors.background
+//        backgroundColor = ZDTools.shared.colors.background
+        backgroundColor = .none
         
         addSubview(name)
         addSubview(mark)

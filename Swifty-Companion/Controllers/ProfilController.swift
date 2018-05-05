@@ -12,10 +12,15 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
     
     let userCellID = "userCellID"
     let resultsCellID = "resultsCellID"
+    let skillsCellID = "skillsCellID"
+    let emptyCellId = "emptyCellID"
+    let loadingCellID = "loadingCellID"
     let titles : [String] = ["Profil", "Results", "Stats"]
     
+    var researchFailed = false
+    
     var target : String?
-    var user : User?
+    var user : User? 
     
     var scrollX : CGFloat = {
         return  0
@@ -24,17 +29,11 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
     lazy var menuBar : Menu = {
         var menu = Menu()
         menu.translatesAutoresizingMaskIntoConstraints = false
-        menu.layer.cornerRadius = 20
-        menu.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         menu.clipsToBounds = true
         menu.profilController = self
         return menu
     }()
-    
 
-    
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,24 +58,20 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
        
         collectionView?.register(UserCell.self, forCellWithReuseIdentifier: userCellID)
         collectionView?.register(ResultsCell.self, forCellWithReuseIdentifier: resultsCellID)
+        collectionView?.register(SkillsCell.self, forCellWithReuseIdentifier: skillsCellID)
+        collectionView?.register(EmptyCell.self, forCellWithReuseIdentifier: emptyCellId)
+        collectionView?.register(LoadingCell.self, forCellWithReuseIdentifier: loadingCellID)
         collectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         collectionView?.isPagingEnabled = true
-        
-        
+        collectionView?.backgroundColor = ZDTools.shared.colors.background
+
         view.addSubview(menuBar)
         
         menuBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         menuBar.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         menuBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
-   
-        
-      
-        
-//        downloadImage()
-      
-    
-  
+        fetchUser()
     }
     
     func fetchUser() {
@@ -86,9 +81,13 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
         RequestService.shared.get(req: request, for: User.self) { [unowned self] data in
             if let data = data {
                 self.user = data
+                self.researchFailed = false
                 self.collectionView?.reloadData()
-                
+            } else {
+                self.researchFailed = true
+                self.collectionView?.reloadData()
             }
+            
         }
     }
     
@@ -125,22 +124,53 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.item {
+        if let user = self.user {
+            switch indexPath.item {
             case 0:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: userCellID, for: indexPath) as! UserCell
-                cell.user = self.user
+                cell.user = user
                 return cell
             case 1 :
+                if user.projects.count < 1 { return collectionView.dequeueReusableCell(withReuseIdentifier: emptyCellId, for: indexPath) as! EmptyCell }
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: resultsCellID, for: indexPath) as! ResultsCell
-                cell.projects = self.user?.projects
+                cell.projects = user.projects
                 return cell
-            default: return collectionView.dequeueReusableCell(withReuseIdentifier: resultsCellID, for: indexPath) as! ResultsCell
+            default:
+                if user.cursus[0].skills.count < 1 { return collectionView.dequeueReusableCell(withReuseIdentifier: emptyCellId, for: indexPath) as! EmptyCell}
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: skillsCellID, for: indexPath) as! SkillsCell
+                cell.skills = user.cursus[0].skills
+                return cell
+            }
+            
         }
+        if researchFailed {
+             return collectionView.dequeueReusableCell(withReuseIdentifier: emptyCellId, for: indexPath) as! EmptyCell
+        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: loadingCellID, for: indexPath) as! LoadingCell
+        cell.loadingWheel.startAnimating()
+        return cell
+
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height - 50)
     }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        let x = self.scrollX / self.view.frame.width
+        coordinator.animate(alongsideTransition: { [unowned self] _ in
+            self.collectionView?.collectionViewLayout.invalidateLayout()
+            self.menuBar.horizontalBarLeftAnchor?.constant = self.view.frame.width * x
+            self.menuBar.collectionView.collectionViewLayout.invalidateLayout()
+            }, completion: { _ in
+                self.scrollX = x * self.view.frame.width
+                
+        })
+        
+        
+    }
+
 }
 
 

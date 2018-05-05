@@ -16,6 +16,10 @@
 		FB285EDF2099176C00ADA7D4 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EDE2099176C00ADA7D4 /* LoginCell.swift */; };
 		FB285EE220991E8F00ADA7D4 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EE120991E8F00ADA7D4 /* APIServices.swift */; };
 		FB285EE4209A564200ADA7D4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EE3209A564200ADA7D4 /* User.swift */; };
+		FB71F2D4209DF1E1002EABEB /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71F2D3209DF1E1002EABEB /* Skills.swift */; };
+		FB71F2D6209DF3C8002EABEB /* SkillsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71F2D5209DF3C8002EABEB /* SkillsCell.swift */; };
+		FB71F2D8209E18B2002EABEB /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71F2D7209E18B2002EABEB /* EmptyCell.swift */; };
+		FB71F2DA209E1EFE002EABEB /* loadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71F2D9209E1EFE002EABEB /* loadingCell.swift */; };
 		FB97804D209B8EE5006929AA /* Cursus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97804C209B8EE5006929AA /* Cursus.swift */; };
 		FB97804F209B907B006929AA /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97804E209B907B006929AA /* Project.swift */; };
 		FB978051209B9E4C006929AA /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB978050209B9E4C006929AA /* ResultsCell.swift */; };
@@ -41,6 +45,10 @@
 		FB285EDE2099176C00ADA7D4 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 		FB285EE120991E8F00ADA7D4 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		FB285EE3209A564200ADA7D4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FB71F2D3209DF1E1002EABEB /* Skills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
+		FB71F2D5209DF3C8002EABEB /* SkillsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsCell.swift; sourceTree = "<group>"; };
+		FB71F2D7209E18B2002EABEB /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
+		FB71F2D9209E1EFE002EABEB /* loadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadingCell.swift; sourceTree = "<group>"; };
 		FB97804C209B8EE5006929AA /* Cursus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cursus.swift; sourceTree = "<group>"; };
 		FB97804E209B907B006929AA /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		FB978050209B9E4C006929AA /* ResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCell.swift; sourceTree = "<group>"; };
@@ -122,6 +130,7 @@
 				FB285EDB2099116500ADA7D4 /* Login.swift */,
 				FB285EE3209A564200ADA7D4 /* User.swift */,
 				FB97804C209B8EE5006929AA /* Cursus.swift */,
+				FB71F2D3209DF1E1002EABEB /* Skills.swift */,
 				FB97804E209B907B006929AA /* Project.swift */,
 			);
 			path = Models;
@@ -135,6 +144,9 @@
 				FBCD5F21209B40030058210B /* MenuCell.swift */,
 				FBCD5F23209B4E740058210B /* UserCell.swift */,
 				FB978050209B9E4C006929AA /* ResultsCell.swift */,
+				FB71F2D7209E18B2002EABEB /* EmptyCell.swift */,
+				FB71F2D5209DF3C8002EABEB /* SkillsCell.swift */,
+				FB71F2D9209E1EFE002EABEB /* loadingCell.swift */,
 				FB978052209BA648006929AA /* ProjectCell.swift */,
 			);
 			path = Views;
@@ -184,7 +196,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Kiefer Wiessler";
 				TargetAttributes = {
 					FB285EC120990AF500ADA7D4 = {
@@ -230,10 +242,12 @@
 			files = (
 				FBCD5F19209B06DF0058210B /* ZDTools.swift in Sources */,
 				FBCD5F1E209B146C0058210B /* ProfilController.swift in Sources */,
+				FB71F2DA209E1EFE002EABEB /* loadingCell.swift in Sources */,
 				FBCD5F20209B3FC70058210B /* Menu.swift in Sources */,
 				FB97804F209B907B006929AA /* Project.swift in Sources */,
 				FB97804D209B8EE5006929AA /* Cursus.swift in Sources */,
 				FB978051209B9E4C006929AA /* ResultsCell.swift in Sources */,
+				FB71F2D4209DF1E1002EABEB /* Skills.swift in Sources */,
 				FB285EC820990AF500ADA7D4 /* SearchController.swift in Sources */,
 				FB285EE220991E8F00ADA7D4 /* APIServices.swift in Sources */,
 				FB285EDA209910C200ADA7D4 /* RequestService.swift in Sources */,
@@ -244,6 +258,8 @@
 				FB978053209BA648006929AA /* ProjectCell.swift in Sources */,
 				FB285EC620990AF500ADA7D4 /* AppDelegate.swift in Sources */,
 				FB285EDC2099116500ADA7D4 /* Login.swift in Sources */,
+				FB71F2D8209E18B2002EABEB /* EmptyCell.swift in Sources */,
+				FB71F2D6209DF3C8002EABEB /* SkillsCell.swift in Sources */,
 				FBCD5F22209B40030058210B /* MenuCell.swift in Sources */,
 				FB285EE4209A564200ADA7D4 /* User.swift in Sources */,
 			);
@@ -277,6 +293,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -284,6 +301,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -334,6 +352,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -341,6 +360,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -374,12 +394,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KZLCG27XYU;
 				INFOPLIST_FILE = "Swifty-Companion/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "kwiessle.Swifty-Companion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -389,12 +411,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KZLCG27XYU;
 				INFOPLIST_FILE = "Swifty-Companion/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "kwiessle.Swifty-Companion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

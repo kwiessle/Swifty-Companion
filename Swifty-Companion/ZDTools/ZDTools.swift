@@ -17,10 +17,7 @@ final class ZDTools {
 
     
     func addBackground(image: String) -> UIImageView {
-        let width = UIScreen.main.bounds.size.width
-        let height = UIScreen.main.bounds.size.height
-        
-        let view = UIImageView(frame: CGRect(x:0, y:0, width: width, height: height))
+        let view = UIImageView(frame: UIScreen.main.bounds)
         view.image = UIImage(named: image)
         view.contentMode = UIViewContentMode.scaleAspectFill
         

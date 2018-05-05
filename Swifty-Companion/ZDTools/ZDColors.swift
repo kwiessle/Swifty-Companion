@@ -19,9 +19,18 @@ class ZDColors {
     let foreground : UIColor = {
         return UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0)
     }()
+
+    let success : UIColor = {
+        return UIColor(red:0.46, green:0.89, blue:0.63, alpha:1.0)
+    }()
+
+    let failure : UIColor = {
+        return UIColor(red:0.89, green:0.46, blue:0.46, alpha:1.0)
+    }()
     
     let background : UIColor = {
-        return UIColor(red:0.12, green:0.12, blue:0.12, alpha:1.0)
+        return UIColor(red:0.09, green:0.09, blue:0.09, alpha:1.0)
+//        return UIColor(red:0.17, green:0.17, blue:0.17, alpha:1.0)
     }()
     
 }

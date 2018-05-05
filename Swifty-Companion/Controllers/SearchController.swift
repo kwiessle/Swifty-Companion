@@ -12,7 +12,7 @@ class SearchController : UIViewController {
 
     var logins : [Login]?
     let cellID = "loginCell"
-
+    var isFirst = true
     
     lazy var profilController : ProfilController = {
         let layout = UICollectionViewFlowLayout()
@@ -20,19 +20,29 @@ class SearchController : UIViewController {
         return controller
     }()
 
+    let schoolLogo : UIView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "42")
+        view.contentMode = .scaleAspectFill
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     let searchField : ZDTextField = {
         let field = ZDTextField()
-        field.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.15).cgColor
+        field.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
         field.layer.borderWidth = 1
         field.attributedPlaceholder = NSAttributedString(string: "xlogin", attributes: [NSAttributedStringKey.foregroundColor : UIColor(white: 1, alpha: 0.8)])
         field.autocapitalizationType = .none
         field.layer.cornerRadius = 5
         field.textColor = .white
         field.backgroundColor = UIColor(white: 0, alpha: 0.3)
+        field.keyboardAppearance = .dark
+        field.autocorrectionType = .no
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
+    
     
     
     let searchButton : UIButton = {
@@ -49,11 +59,10 @@ class SearchController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .black
+        
+        view.addSubview(schoolLogo)
         view.addSubview(searchField)
         view.addSubview(searchButton)
-        
-//        navigationController?.navigationBar.isHidden = true
         
         
         let background = ZDTools.shared.addBackground(image: "companion-background")
@@ -67,9 +76,15 @@ class SearchController : UIViewController {
     
     @objc func handleSearch() {
 
+        if !isFirst {
+            self.profilController.user = nil
+            self.profilController.collectionView?.reloadData()
+        }
         self.profilController.target = searchField.text?.trim()
+        self.profilController.researchFailed = false
         self.profilController.fetchUser()
         self.navigationController?.pushViewController(self.profilController, animated: true)
+        isFirst = false
     }
 }
 
@@ -80,15 +95,20 @@ extension SearchController {
     func setConstraints() {
         
         
+        schoolLogo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60).isActive = true
+        schoolLogo.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        schoolLogo.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        schoolLogo.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        
         searchField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         searchField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -33).isActive = true
         searchField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 33).isActive = true
-        searchField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
+        searchField.topAnchor.constraint(equalTo: schoolLogo.safeAreaLayoutGuide.bottomAnchor, constant: 30).isActive = true
         
         searchButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         searchButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -33).isActive = true
         searchButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 33).isActive = true
-        searchButton.topAnchor.constraint(equalTo: searchField.safeAreaLayoutGuide.bottomAnchor, constant: 35).isActive = true
+        searchButton.topAnchor.constraint(equalTo: searchField.safeAreaLayoutGuide.bottomAnchor, constant: 25).isActive = true
     }
     
 }
