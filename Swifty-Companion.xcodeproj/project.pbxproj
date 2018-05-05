@@ -16,6 +16,10 @@
 		FB285EDF2099176C00ADA7D4 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EDE2099176C00ADA7D4 /* LoginCell.swift */; };
 		FB285EE220991E8F00ADA7D4 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EE120991E8F00ADA7D4 /* APIServices.swift */; };
 		FB285EE4209A564200ADA7D4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EE3209A564200ADA7D4 /* User.swift */; };
+		FB97804D209B8EE5006929AA /* Cursus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97804C209B8EE5006929AA /* Cursus.swift */; };
+		FB97804F209B907B006929AA /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97804E209B907B006929AA /* Project.swift */; };
+		FB978051209B9E4C006929AA /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB978050209B9E4C006929AA /* ResultsCell.swift */; };
+		FB978053209BA648006929AA /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB978052209BA648006929AA /* ProjectCell.swift */; };
 		FBCD5F17209B060D0058210B /* ZDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD5F16209B060D0058210B /* ZDTextField.swift */; };
 		FBCD5F19209B06DF0058210B /* ZDTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD5F18209B06DF0058210B /* ZDTools.swift */; };
 		FBCD5F1C209B0B6E0058210B /* ZDColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD5F1B209B0B6E0058210B /* ZDColors.swift */; };
@@ -37,6 +41,10 @@
 		FB285EDE2099176C00ADA7D4 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 		FB285EE120991E8F00ADA7D4 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		FB285EE3209A564200ADA7D4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FB97804C209B8EE5006929AA /* Cursus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cursus.swift; sourceTree = "<group>"; };
+		FB97804E209B907B006929AA /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		FB978050209B9E4C006929AA /* ResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCell.swift; sourceTree = "<group>"; };
+		FB978052209BA648006929AA /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		FBCD5F16209B060D0058210B /* ZDTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDTextField.swift; sourceTree = "<group>"; };
 		FBCD5F18209B06DF0058210B /* ZDTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDTools.swift; sourceTree = "<group>"; };
 		FBCD5F1B209B0B6E0058210B /* ZDColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDColors.swift; sourceTree = "<group>"; };
@@ -60,7 +68,6 @@
 		FB285EB920990AF500ADA7D4 = {
 			isa = PBXGroup;
 			children = (
-				FB285EE02099177100ADA7D4 /* Views */,
 				FB285EC420990AF500ADA7D4 /* Swifty-Companion */,
 				FB285EC320990AF500ADA7D4 /* Products */,
 			);
@@ -77,6 +84,7 @@
 		FB285EC420990AF500ADA7D4 /* Swifty-Companion */ = {
 			isa = PBXGroup;
 			children = (
+				FB285EE02099177100ADA7D4 /* Views */,
 				FB285EC520990AF500ADA7D4 /* AppDelegate.swift */,
 				FB285EDD209911DF00ADA7D4 /* Models */,
 				FB285ED8209910A700ADA7D4 /* APIServices */,
@@ -113,6 +121,8 @@
 			children = (
 				FB285EDB2099116500ADA7D4 /* Login.swift */,
 				FB285EE3209A564200ADA7D4 /* User.swift */,
+				FB97804C209B8EE5006929AA /* Cursus.swift */,
+				FB97804E209B907B006929AA /* Project.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,6 +134,8 @@
 				FBCD5F1F209B3FC70058210B /* Menu.swift */,
 				FBCD5F21209B40030058210B /* MenuCell.swift */,
 				FBCD5F23209B4E740058210B /* UserCell.swift */,
+				FB978050209B9E4C006929AA /* ResultsCell.swift */,
+				FB978052209BA648006929AA /* ProjectCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -219,6 +231,9 @@
 				FBCD5F19209B06DF0058210B /* ZDTools.swift in Sources */,
 				FBCD5F1E209B146C0058210B /* ProfilController.swift in Sources */,
 				FBCD5F20209B3FC70058210B /* Menu.swift in Sources */,
+				FB97804F209B907B006929AA /* Project.swift in Sources */,
+				FB97804D209B8EE5006929AA /* Cursus.swift in Sources */,
+				FB978051209B9E4C006929AA /* ResultsCell.swift in Sources */,
 				FB285EC820990AF500ADA7D4 /* SearchController.swift in Sources */,
 				FB285EE220991E8F00ADA7D4 /* APIServices.swift in Sources */,
 				FB285EDA209910C200ADA7D4 /* RequestService.swift in Sources */,
@@ -226,6 +241,7 @@
 				FBCD5F17209B060D0058210B /* ZDTextField.swift in Sources */,
 				FBCD5F1C209B0B6E0058210B /* ZDColors.swift in Sources */,
 				FB285EDF2099176C00ADA7D4 /* LoginCell.swift in Sources */,
+				FB978053209BA648006929AA /* ProjectCell.swift in Sources */,
 				FB285EC620990AF500ADA7D4 /* AppDelegate.swift in Sources */,
 				FB285EDC2099116500ADA7D4 /* Login.swift in Sources */,
 				FBCD5F22209B40030058210B /* MenuCell.swift in Sources */,

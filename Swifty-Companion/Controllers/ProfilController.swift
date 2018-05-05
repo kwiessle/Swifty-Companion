@@ -10,7 +10,8 @@ import UIKit
 
 class ProfilController : UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    let userCellID = "cellID"
+    let userCellID = "userCellID"
+    let resultsCellID = "resultsCellID"
     let titles : [String] = ["Profil", "Results", "Stats"]
     
     var target : String?
@@ -57,6 +58,7 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
         navigationItem.titleView = navigationTitle
        
         collectionView?.register(UserCell.self, forCellWithReuseIdentifier: userCellID)
+        collectionView?.register(ResultsCell.self, forCellWithReuseIdentifier: resultsCellID)
         collectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         collectionView?.isPagingEnabled = true
@@ -83,7 +85,6 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
         
         RequestService.shared.get(req: request, for: User.self) { [unowned self] data in
             if let data = data {
-                print(data)
                 self.user = data
                 self.collectionView?.reloadData()
                 
@@ -124,11 +125,17 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: userCellID, for: indexPath) as! UserCell
-//        let colors : [UIColor] = [.red, .blue, .yellow]
-        cell.user = self.user
-//        cell.backgroundColor = colors[indexPath.item]
-        return cell
+        switch indexPath.item {
+            case 0:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: userCellID, for: indexPath) as! UserCell
+                cell.user = self.user
+                return cell
+            case 1 :
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: resultsCellID, for: indexPath) as! ResultsCell
+                cell.projects = self.user?.projects
+                return cell
+            default: return collectionView.dequeueReusableCell(withReuseIdentifier: resultsCellID, for: indexPath) as! ResultsCell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -49,6 +49,7 @@ final class APIServices {
         
         RequestService.shared.get(req: request, for: Token.self) { data in
             self.token = data
+            print(data?.key)
             completion(true)
         }
     }

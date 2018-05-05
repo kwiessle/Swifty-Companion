@@ -21,6 +21,7 @@ class UserCell: UICollectionViewCell {
             name.text = self.user?.displayName
             if let location = self.user?.location { self.location.text = location }
             else { self.location.text = "Unavailable" }
+            setProgressBar()
         }
     }
     
@@ -53,6 +54,7 @@ class UserCell: UICollectionViewCell {
         return label
     }()
     
+  
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,6 +65,59 @@ class UserCell: UICollectionViewCell {
         addSubview(location)
         
         setLayout()
+        setProgressBar()
+        
+    }
+    
+    
+    func setProgressBar() {
+        
+        guard let level = self.user?.cursus[0].level else { print("failed"); return }
+        
+        let holder = UIView(frame: CGRect(x: frame.width/2 - 150, y: 290, width: 300, height: 30))
+        holder.translatesAutoresizingMaskIntoConstraints = false
+        holder.backgroundColor = UIColor(white: 0, alpha: 0.8)
+        holder.layer.borderColor = UIColor.white.cgColor
+        holder.layer.borderWidth = 1
+        holder.layer.cornerRadius = 5
+        holder.clipsToBounds = true
+        
+        addSubview(holder)
+        
+        
+        let percent = level.truncatingRemainder(dividingBy: 1.0)
+        
+        
+        let label = UITextView(frame: CGRect(x: 0, y: -2, width: 300, height: 30))
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.text = "\(String(level)) %"
+        label.backgroundColor = UIColor(white: 1, alpha: 0)
+        label.textColor = .white
+        
+     
+
+        
+        let progress = UIView(frame: CGRect(x: 2, y: 2, width: holder.frame.width * CGFloat(percent) - 4 , height: holder.frame.height - 4))
+        progress.translatesAutoresizingMaskIntoConstraints = false
+        progress.backgroundColor = ZDTools.shared.colors.green
+       
+   
+        progress.layer.cornerRadius = 2
+        
+      
+        progress.addSubview(label)
+         holder.addSubview(progress)
+        
+       
+        
+       
+       print("passed")
+        
+        
+        
+   
         
         
     }
@@ -74,13 +129,13 @@ class UserCell: UICollectionViewCell {
         picture.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
         picture.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
-        name.topAnchor.constraint(equalTo: picture.bottomAnchor, constant: 20).isActive = true
+        name.topAnchor.constraint(equalTo: picture.bottomAnchor, constant: 10).isActive = true
         name.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         name.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         location.topAnchor.constraint(equalTo: name.bottomAnchor).isActive = true
         location.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        location.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        location.heightAnchor.constraint(equalToConstant: 10).isActive = true
         
     }
     
