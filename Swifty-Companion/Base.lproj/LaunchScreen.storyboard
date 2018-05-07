@@ -18,16 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="companion-background" translatesAutoresizingMaskIntoConstraints="NO" id="m9L-cb-Vjz">
-                                <rect key="frame" x="-0.5" y="10" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="companion-background" translatesAutoresizingMaskIntoConstraints="NO" id="csz-7X-lwy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="m9L-cb-Vjz" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="16Z-ZE-43w"/>
-                            <constraint firstItem="m9L-cb-Vjz" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ihM-Xu-wXZ"/>
-                            <constraint firstItem="m9L-cb-Vjz" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="uMT-6y-Wzw"/>
-                            <constraint firstItem="m9L-cb-Vjz" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="vbO-Tu-qoK"/>
+                            <constraint firstItem="csz-7X-lwy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-20" id="5rd-ni-blF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="csz-7X-lwy" secondAttribute="trailing" id="GvD-rm-Jdt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="csz-7X-lwy" secondAttribute="bottom" id="Yj1-AL-pBR"/>
+                            <constraint firstItem="csz-7X-lwy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cee-Zq-BCl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

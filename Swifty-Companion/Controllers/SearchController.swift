@@ -60,7 +60,7 @@ class SearchController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        APIServices.shared.getToken { _ in }
         
         view.addSubview(schoolLogo)
         view.addSubview(searchField)
