@@ -33,7 +33,7 @@ class SkillsCell: UICollectionViewCell, UITableViewDataSource, UITableViewDelega
         
         addSubview(tableView)
         
-        tableView.register(ProjectCell.self, forCellReuseIdentifier: "id")
+        tableView.register(SkillCell.self, forCellReuseIdentifier: "id")
         tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -50,7 +50,7 @@ class SkillsCell: UICollectionViewCell, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "id", for: indexPath) as! ProjectCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "id", for: indexPath) as! SkillCell
         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, UIScreen.main.bounds.width)
         
         cell.backgroundColor = indexPath.item % 2 == 1 ? .none : UIColor(white: 0, alpha: 0.12)
@@ -62,11 +62,13 @@ class SkillsCell: UICollectionViewCell, UITableViewDataSource, UITableViewDelega
         cell.name.text = name
         cell.mark.text = String(level)
         cell.mark.textColor = ZDTools.shared.colors.success
+        cell.ProgressBar.progress = Float(level / 21)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return frame.height / 12
+        return frame.height / 7
     }
     
 }

@@ -134,11 +134,8 @@ class UserCell: UICollectionViewCell {
         addSubview(picture)
         addSubview(name)
         addSubview(location)
-        
     
         setLayout()
-
-        
     }
     
     override func willTransition(from oldLayout: UICollectionViewLayout, to newLayout: UICollectionViewLayout) {

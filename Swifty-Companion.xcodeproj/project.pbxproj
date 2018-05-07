@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D7208B120A073AB003111F6 /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7208B020A073AB003111F6 /* SkillCell.swift */; };
 		FB285EC620990AF500ADA7D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EC520990AF500ADA7D4 /* AppDelegate.swift */; };
 		FB285EC820990AF500ADA7D4 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB285EC720990AF500ADA7D4 /* SearchController.swift */; };
 		FB285ECD20990AF500ADA7D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB285ECC20990AF500ADA7D4 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D7208B020A073AB003111F6 /* SkillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCell.swift; sourceTree = "<group>"; };
 		FB285EC220990AF500ADA7D4 /* Swifty-Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty-Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB285EC520990AF500ADA7D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB285EC720990AF500ADA7D4 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				FB978050209B9E4C006929AA /* ResultsCell.swift */,
 				FB71F2D7209E18B2002EABEB /* EmptyCell.swift */,
 				FB71F2D5209DF3C8002EABEB /* SkillsCell.swift */,
+				0D7208B020A073AB003111F6 /* SkillCell.swift */,
 				FB71F2D9209E1EFE002EABEB /* loadingCell.swift */,
 				FB978052209BA648006929AA /* ProjectCell.swift */,
 			);
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBCD5F19209B06DF0058210B /* ZDTools.swift in Sources */,
+				0D7208B120A073AB003111F6 /* SkillCell.swift in Sources */,
 				FBCD5F1E209B146C0058210B /* ProfilController.swift in Sources */,
 				FB71F2DA209E1EFE002EABEB /* loadingCell.swift in Sources */,
 				FBCD5F20209B3FC70058210B /* Menu.swift in Sources */,

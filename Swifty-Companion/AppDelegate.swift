@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
             self.window = UIWindow()
             self.window?.makeKeyAndVisible()
-            
             self.window?.rootViewController = UINavigationController(rootViewController: SearchController())
         
         
