@@ -86,6 +86,7 @@ class SearchController : UIViewController {
         self.profilController.researchFailed = false
         self.profilController.fetchUser()
         self.navigationController?.pushViewController(self.profilController, animated: true)
+        self.profilController.scrollToMenuIndex(index: 0)
         isFirst = false
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserCell: UICollectionViewCell {
+class UserCell: UITableViewCell {
     
     var user : User? {
         willSet {
@@ -24,14 +24,10 @@ class UserCell: UICollectionViewCell {
             if let login = self.user?.login { self.loginItem.text = login }
             if let phone = self.user?.phone { self.phoneItem.text = phone }
             if let mail = self.user?.email { self.mailItem.text = mail }
-       
-            for view in subviews {
-                if (view.viewWithTag(2212) != nil) {
-                    view.removeFromSuperview()
-                }
+            if let level = self.user?.cursus[0].level {
+                self.level.text = "level : \(String(level))"
+                self.progress.progress = Float(level.truncatingRemainder(dividingBy: 1.0))
             }
-            addSubview(setProgressBar())
-       
         }
     }
     
@@ -57,6 +53,24 @@ class UserCell: UICollectionViewCell {
         return label
     }()
     
+    let level : UILabel = {
+        let label = UILabel()
+        label.text = "level : "
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 10)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let progress : UIProgressView = {
+        let view = UIProgressView()
+        view.progressTintColor = ZDTools.shared.colors.green
+        view.trackTintColor = UIColor(white: 1, alpha: 0.1)
+        view.layer.cornerRadius = 7
+        view.clipsToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     let location : UILabel = {
         let label = UILabel()
@@ -120,70 +134,34 @@ class UserCell: UICollectionViewCell {
         return view
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = UIColor(patternImage: UIImage(named: "companion-background")!)
-    
-        addSubview(shadowView)
-        addSubview(loginLogo)
-        addSubview(loginItem)
-        addSubview(phoneLogo)
-        addSubview(phoneItem)
-        addSubview(mailLogo)
-        addSubview(mailItem)
-        addSubview(picture)
-        addSubview(name)
-        addSubview(location)
-    
-        setLayout()
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+                backgroundColor = .none
+        
+                addSubview(shadowView)
+                addSubview(loginLogo)
+                addSubview(loginItem)
+                addSubview(phoneLogo)
+                addSubview(phoneItem)
+                addSubview(mailLogo)
+                addSubview(mailItem)
+                addSubview(picture)
+                addSubview(name)
+                addSubview(level)
+                addSubview(progress)
+                addSubview(location)
+        
+                setLayout()
     }
+
     
-    override func willTransition(from oldLayout: UICollectionViewLayout, to newLayout: UICollectionViewLayout) {
-        oldLayout.invalidateLayout()
-        
-    }
-    
-    func setProgressBar() -> UIView {
-        
-        guard let level = self.user?.cursus[0].level else { print("failed"); return UIView() }
-        
-        let width = frame.width - 90
-        
-        let holder = UIView(frame: CGRect(x: frame.width/2 - width/2, y: 310, width: width, height: 30))
-        holder.translatesAutoresizingMaskIntoConstraints = false
-        holder.backgroundColor = UIColor(white: 0, alpha: 0.8)
-        holder.layer.borderColor = UIColor.white.cgColor
-        holder.layer.borderWidth = 2
-        holder.layer.cornerRadius = 5
-        holder.clipsToBounds = true
-        holder.tag = 2212
-        
-        let percent = level.truncatingRemainder(dividingBy: 1.0)
-        let label = UITextView(frame: CGRect(x: 0, y: -3, width: width, height: 30))
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.text = "\(String(level)) %"
-        label.backgroundColor = UIColor(white: 1, alpha: 0)
-        label.textColor = .white
-        
-        let progress = UIView(frame: CGRect(x: 3, y: 3, width: holder.frame.width * CGFloat(percent) - 6 , height: holder.frame.height - 6))
-        progress.translatesAutoresizingMaskIntoConstraints = false
-        progress.backgroundColor = ZDTools.shared.colors.green
-        progress.layer.cornerRadius = 2
-        progress.addSubview(label)
-        
-        holder.addSubview(progress)
-        return holder
-    }
     
     func setLayout() {
         
         shadowView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 120).isActive = true
         shadowView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 22.5).isActive = true
         shadowView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -22.5).isActive = true
-//        shadowView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -22.5).isActive = true
         shadowView.heightAnchor.constraint(equalToConstant: 390).isActive = true
         
         picture.widthAnchor.constraint(equalToConstant: 140).isActive = true
@@ -198,6 +176,15 @@ class UserCell: UICollectionViewCell {
         location.topAnchor.constraint(equalTo: name.bottomAnchor).isActive = true
         location.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         location.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        
+        level.topAnchor.constraint(equalTo: location.bottomAnchor, constant: 20).isActive = true
+        level.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        level.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
+        
+        progress.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
+        progress.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        progress.topAnchor.constraint(equalTo: location.bottomAnchor, constant: 40).isActive = true
+        progress.widthAnchor.constraint(equalToConstant: 200).isActive = true
         
         loginLogo.topAnchor.constraint(equalTo: location.bottomAnchor, constant: 85).isActive = true
         loginLogo.leftAnchor.constraint(equalTo:  leftAnchor, constant: 80).isActive = true

@@ -75,7 +75,7 @@ extension SkillCell {
         mark.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         progressBar.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 20).isActive = true
-        progressBar.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.5).isActive = true
+        progressBar.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.725).isActive = true
         progressBar.heightAnchor.constraint(equalToConstant: 4).isActive = true
         progressBar.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor, constant: 15).isActive = true
         

@@ -26,6 +26,7 @@
 		FB97804F209B907B006929AA /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97804E209B907B006929AA /* Project.swift */; };
 		FB978051209B9E4C006929AA /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB978050209B9E4C006929AA /* ResultsCell.swift */; };
 		FB978053209BA648006929AA /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB978052209BA648006929AA /* ProjectCell.swift */; };
+		FBAAE98D20A0EFA800C7FCEB /* UserContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAAE98C20A0EFA800C7FCEB /* UserContainerCell.swift */; };
 		FBCD5F17209B060D0058210B /* ZDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD5F16209B060D0058210B /* ZDTextField.swift */; };
 		FBCD5F19209B06DF0058210B /* ZDTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD5F18209B06DF0058210B /* ZDTools.swift */; };
 		FBCD5F1C209B0B6E0058210B /* ZDColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD5F1B209B0B6E0058210B /* ZDColors.swift */; };
@@ -57,6 +58,7 @@
 		FB97804E209B907B006929AA /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		FB978050209B9E4C006929AA /* ResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCell.swift; sourceTree = "<group>"; };
 		FB978052209BA648006929AA /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
+		FBAAE98C20A0EFA800C7FCEB /* UserContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContainerCell.swift; sourceTree = "<group>"; };
 		FBCD5F16209B060D0058210B /* ZDTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDTextField.swift; sourceTree = "<group>"; };
 		FBCD5F18209B06DF0058210B /* ZDTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDTools.swift; sourceTree = "<group>"; };
 		FBCD5F1B209B0B6E0058210B /* ZDColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDColors.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				FBCD5F1F209B3FC70058210B /* Menu.swift */,
 				FBCD5F21209B40030058210B /* MenuCell.swift */,
 				FBCD5F23209B4E740058210B /* UserCell.swift */,
+				FBAAE98C20A0EFA800C7FCEB /* UserContainerCell.swift */,
 				FB978050209B9E4C006929AA /* ResultsCell.swift */,
 				FB71F2D7209E18B2002EABEB /* EmptyCell.swift */,
 				FB71F2D5209DF3C8002EABEB /* SkillsCell.swift */,
@@ -254,6 +257,7 @@
 				FBCD5F24209B4E740058210B /* UserCell.swift in Sources */,
 				FBCD5F17209B060D0058210B /* ZDTextField.swift in Sources */,
 				FBCD5F1C209B0B6E0058210B /* ZDColors.swift in Sources */,
+				FBAAE98D20A0EFA800C7FCEB /* UserContainerCell.swift in Sources */,
 				FB285EDF2099176C00ADA7D4 /* LoginCell.swift in Sources */,
 				FB978053209BA648006929AA /* ProjectCell.swift in Sources */,
 				FB285EC620990AF500ADA7D4 /* AppDelegate.swift in Sources */,

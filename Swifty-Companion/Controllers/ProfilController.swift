@@ -56,7 +56,7 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.white]
         navigationItem.titleView = navigationTitle
        
-        collectionView?.register(UserCell.self, forCellWithReuseIdentifier: userCellID)
+        collectionView?.register(UserContainerCell.self, forCellWithReuseIdentifier: userCellID)
         collectionView?.register(ResultsCell.self, forCellWithReuseIdentifier: resultsCellID)
         collectionView?.register(SkillsCell.self, forCellWithReuseIdentifier: skillsCellID)
         collectionView?.register(EmptyCell.self, forCellWithReuseIdentifier: emptyCellId)
@@ -127,7 +127,7 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
         if let user = self.user {
             switch indexPath.item {
             case 0:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: userCellID, for: indexPath) as! UserCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: userCellID, for: indexPath) as! UserContainerCell
                 cell.user = user
                 return cell
             case 1 :

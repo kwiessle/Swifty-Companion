@@ -21,17 +21,30 @@ class EmptyCell : UICollectionViewCell {
         return label
     }()
     
+    let logo : UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "loupe")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         addSubview(notFound)
+        addSubview(logo)
         
         notFound.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor).isActive = true
         notFound.heightAnchor.constraint(equalToConstant: 40).isActive = true
         notFound.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
         notFound.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
+        
+        logo.bottomAnchor.constraint(equalTo: notFound.topAnchor, constant: -30).isActive = true
+        logo.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
+        logo.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        logo.widthAnchor.constraint(equalToConstant: 80).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
