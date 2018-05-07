@@ -38,4 +38,8 @@ class ZDColors {
 //        return UIColor(red:0.17, green:0.17, blue:0.17, alpha:1.0)
     }()
     
+    let font : UIColor = {
+        return UIColor(white: 0.8, alpha: 0.5)
+    }()
+    
 }

@@ -32,11 +32,11 @@ class SearchController : UIViewController {
         let field = ZDTextField()
         field.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
         field.layer.borderWidth = 1
-        field.attributedPlaceholder = NSAttributedString(string: "xlogin", attributes: [NSAttributedStringKey.foregroundColor : UIColor(white: 1, alpha: 0.8)])
+        field.attributedPlaceholder = NSAttributedString(string: "xlogin", attributes: [NSAttributedStringKey.foregroundColor : UIColor(white: 1, alpha: 0.6)])
         field.autocapitalizationType = .none
         field.layer.cornerRadius = 5
         field.textColor = .white
-        field.backgroundColor = UIColor(white: 0, alpha: 0.3)
+        field.backgroundColor = UIColor(white: 0, alpha: 0.45)
         field.keyboardAppearance = .dark
         field.autocorrectionType = .no
         field.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +52,7 @@ class SearchController : UIViewController {
         button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(handleSearch), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setBackgroundColor(color: ZDTools.shared.colors.orange, forState: UIControlState.highlighted)
+        button.setBackgroundColor(color: ZDTools.shared.colors.success, forState: UIControlState.highlighted)
         button.clipsToBounds = true
         return button
     }()
@@ -97,7 +97,7 @@ extension SearchController {
     func setConstraints() {
         
         
-        schoolLogo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60).isActive = true
+        schoolLogo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 90).isActive = true
         schoolLogo.heightAnchor.constraint(equalToConstant: 140).isActive = true
         schoolLogo.widthAnchor.constraint(equalToConstant: 140).isActive = true
         schoolLogo.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true

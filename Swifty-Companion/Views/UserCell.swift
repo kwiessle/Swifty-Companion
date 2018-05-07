@@ -69,7 +69,7 @@ class UserCell: UICollectionViewCell {
     
     let loginLogo : UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "card")
+        view.image = UIImage(named: "user")
         view.contentMode = .scaleAspectFill
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -77,7 +77,7 @@ class UserCell: UICollectionViewCell {
     
     let loginItem : UILabel = {
         let label = UILabel()
-        label.textColor = ZDTools.shared.colors.green
+        label.textColor = ZDTools.shared.colors.font
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -92,7 +92,7 @@ class UserCell: UICollectionViewCell {
     
     let phoneItem : UILabel = {
         let label = UILabel()
-        label.textColor = ZDTools.shared.colors.green
+        label.textColor = ZDTools.shared.colors.font
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -107,7 +107,7 @@ class UserCell: UICollectionViewCell {
 
     let mailItem : UILabel = {
         let label = UILabel()
-        label.textColor = ZDTools.shared.colors.green
+        label.textColor = ZDTools.shared.colors.font
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -147,7 +147,9 @@ class UserCell: UICollectionViewCell {
         
         guard let level = self.user?.cursus[0].level else { print("failed"); return UIView() }
         
-        let holder = UIView(frame: CGRect(x: frame.width/2 - 140, y: 290, width: 280, height: 30))
+        let width = frame.width - 90
+        
+        let holder = UIView(frame: CGRect(x: frame.width/2 - width/2, y: 310, width: width, height: 30))
         holder.translatesAutoresizingMaskIntoConstraints = false
         holder.backgroundColor = UIColor(white: 0, alpha: 0.8)
         holder.layer.borderColor = UIColor.white.cgColor
@@ -157,7 +159,7 @@ class UserCell: UICollectionViewCell {
         holder.tag = 2212
         
         let percent = level.truncatingRemainder(dividingBy: 1.0)
-        let label = UITextView(frame: CGRect(x: 0, y: -3, width: 280, height: 30))
+        let label = UITextView(frame: CGRect(x: 0, y: -3, width: width, height: 30))
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
@@ -186,7 +188,7 @@ class UserCell: UICollectionViewCell {
         
         picture.widthAnchor.constraint(equalToConstant: 140).isActive = true
         picture.heightAnchor.constraint(equalToConstant: 140).isActive = true
-        picture.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 45).isActive = true
+        picture.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 65).isActive = true
         picture.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         name.topAnchor.constraint(equalTo: picture.bottomAnchor, constant: 10).isActive = true
@@ -197,26 +199,26 @@ class UserCell: UICollectionViewCell {
         location.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         location.heightAnchor.constraint(equalToConstant: 15).isActive = true
         
-        loginLogo.topAnchor.constraint(equalTo: location.bottomAnchor, constant: 90).isActive = true
-        loginLogo.leftAnchor.constraint(equalTo:  leftAnchor, constant: 50).isActive = true
-        loginLogo.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        loginLogo.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        loginLogo.topAnchor.constraint(equalTo: location.bottomAnchor, constant: 85).isActive = true
+        loginLogo.leftAnchor.constraint(equalTo:  leftAnchor, constant: 80).isActive = true
+        loginLogo.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        loginLogo.widthAnchor.constraint(equalToConstant: 20).isActive = true
         
         loginItem.centerYAnchor.constraint(equalTo: loginLogo.centerYAnchor).isActive = true
         loginItem.leftAnchor.constraint(equalTo: loginLogo.rightAnchor, constant: 20).isActive = true
         
         phoneLogo.topAnchor.constraint(equalTo: loginLogo.bottomAnchor, constant: 20).isActive = true
-        phoneLogo.leftAnchor.constraint(equalTo:  leftAnchor, constant: 50).isActive = true
-        phoneLogo.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        phoneLogo.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        phoneLogo.leftAnchor.constraint(equalTo:  leftAnchor, constant: 80).isActive = true
+        phoneLogo.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        phoneLogo.widthAnchor.constraint(equalToConstant: 20).isActive = true
         
         phoneItem.centerYAnchor.constraint(equalTo: phoneLogo.centerYAnchor).isActive = true
         phoneItem.leftAnchor.constraint(equalTo: phoneLogo.rightAnchor, constant: 20).isActive = true
         
         mailLogo.topAnchor.constraint(equalTo: phoneLogo.bottomAnchor, constant: 20).isActive = true
-        mailLogo.leftAnchor.constraint(equalTo:  leftAnchor, constant: 50).isActive = true
-        mailLogo.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        mailLogo.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        mailLogo.leftAnchor.constraint(equalTo:  leftAnchor, constant: 80).isActive = true
+        mailLogo.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        mailLogo.widthAnchor.constraint(equalToConstant: 20).isActive = true
         
         mailItem.centerYAnchor.constraint(equalTo: mailLogo.centerYAnchor).isActive = true
         mailItem.leftAnchor.constraint(equalTo: mailLogo.rightAnchor, constant: 20).isActive = true

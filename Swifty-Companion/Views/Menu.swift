@@ -53,7 +53,7 @@ class Menu: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
     
     func setHorizontalBar() {
         let horizontalBar = UIView()
-        horizontalBar.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
+        horizontalBar.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)
         horizontalBar.translatesAutoresizingMaskIntoConstraints = false
         
         

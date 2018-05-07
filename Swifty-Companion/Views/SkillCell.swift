@@ -21,15 +21,26 @@ class SkillCell : UITableViewCell {
     let name : UILabel = {
         let label = UILabel()
         label.text = nil
-        label.textColor = .white
+        label.textColor = ZDTools.shared.colors.font
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let ProgressBar: UIProgressView = {
+    let progressBar: UIProgressView = {
         let bar = UIProgressView()
         bar.translatesAutoresizingMaskIntoConstraints = false
+        bar.progressTintColor = ZDTools.shared.colors.green
+        bar.trackTintColor = UIColor(white: 1, alpha: 0.1)
+        bar.layer.cornerRadius = 2
+        bar.clipsToBounds = true
         return bar
+    }()
+    
+    let separator :  UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -38,8 +49,9 @@ class SkillCell : UITableViewCell {
         
         addSubview(name)
         addSubview(mark)
-        addSubview(ProgressBar)
-
+        addSubview(progressBar)
+        addSubview(separator)
+        
         setConstraints()
     }
     
@@ -62,9 +74,14 @@ extension SkillCell {
         mark.heightAnchor.constraint(equalToConstant: 20).isActive = true
         mark.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
-        ProgressBar.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 20).isActive = true
-        ProgressBar.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.5).isActive = true
-        ProgressBar.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor, constant: 15).isActive = true
+        progressBar.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 20).isActive = true
+        progressBar.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.5).isActive = true
+        progressBar.heightAnchor.constraint(equalToConstant: 4).isActive = true
+        progressBar.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor, constant: 15).isActive = true
+        
+        separator.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        separator.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 1).isActive = true
     }
 
 

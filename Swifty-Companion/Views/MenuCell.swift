@@ -43,7 +43,7 @@ extension MenuCell {
     
     func setConstraints() {
         logo.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        logo.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        logo.topAnchor.constraint(equalTo: topAnchor).isActive = true
         
         logo.widthAnchor.constraint(equalToConstant: 28).isActive = true
         logo.heightAnchor.constraint(equalToConstant: 28).isActive = true

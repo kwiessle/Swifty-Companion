@@ -19,7 +19,7 @@ class ZDTextField : UITextField{
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return CGRect.init(x: bounds.origin.x + 8, y: bounds.origin.y, width: bounds.width, height: bounds.height)
+        return CGRect.init(x: bounds.origin.x + 15, y: bounds.origin.y, width: bounds.width, height: bounds.height)
     }
     
     override func editingRect(forBounds bounds: CGRect) -> CGRect {

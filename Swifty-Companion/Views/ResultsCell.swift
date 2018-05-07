@@ -69,7 +69,7 @@ class ResultsCell: UICollectionViewCell, UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return frame.height / 12
+        return CGFloat(50)
     }
     
 }

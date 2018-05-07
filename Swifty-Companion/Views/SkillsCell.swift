@@ -62,7 +62,7 @@ class SkillsCell: UICollectionViewCell, UITableViewDataSource, UITableViewDelega
         cell.name.text = name
         cell.mark.text = String(level)
         cell.mark.textColor = ZDTools.shared.colors.success
-        cell.ProgressBar.progress = Float(level / 21)
+        cell.progressBar.progress = Float(level / 21)
         
         return cell
     }
