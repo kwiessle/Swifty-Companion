@@ -43,8 +43,9 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
             flowLayout.minimumLineSpacing = 0
         }
         
-        let navigationTitle = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
-        navigationTitle.textColor = .white
+        let navigationTitle = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 140, height: view.frame.height))
+        navigationTitle.textColor = UIColor(white: 0, alpha: 0.6)
+        navigationTitle.textAlignment = .center
         navigationTitle.text = "Profil"
         navigationTitle.font = UIFont.systemFont(ofSize: 20.0)
         
@@ -55,6 +56,7 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.white]
         navigationItem.titleView = navigationTitle
+        
        
         collectionView?.register(UserContainerCell.self, forCellWithReuseIdentifier: userCellID)
         collectionView?.register(ResultsCell.self, forCellWithReuseIdentifier: resultsCellID)
@@ -71,24 +73,34 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
         menuBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         menuBar.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         menuBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        fetchUser()
+   
     }
     
     func fetchUser() {
-        guard let login = target else { return }
-        guard let request = APIServices.shared.createRequest(for: "/v2/users/\(login)") else { return }
-        
-        RequestService.shared.get(req: request, for: User.self) { [unowned self] data in
-            if let data = data {
-                self.user = data
-                self.researchFailed = false
-                self.collectionView?.reloadData()
-            } else {
-                self.researchFailed = true
-                self.collectionView?.reloadData()
+        APIServices.shared.getTokenInfos { isValid in
+            if isValid {
+                guard let login = self.target else { return }
+                guard let request = APIServices.shared.createRequest(for: "/v2/users/\(login)") else { return }
+                RequestService.shared.get(req: request, for: User.self) { [unowned self] data in
+                    if let data = data {
+                        self.user = data
+                        self.researchFailed = false
+                        self.collectionView?.reloadData()
+                    } else {
+                        self.researchFailed = true
+                        self.collectionView?.reloadData()
+                    }
+                    
+                }
             }
-            
+            else {
+                APIServices.shared.getToken(completion: { _ in
+                    self.fetchUser()
+                })
+            }
         }
+        
+    
     }
     
     func scrollToMenuIndex(index: Int) {
@@ -161,6 +173,7 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
         let x = self.scrollX / self.view.frame.width
         coordinator.animate(alongsideTransition: { [unowned self] _ in
             self.collectionView?.collectionViewLayout.invalidateLayout()
+            self.collectionView?.reloadData()
             self.menuBar.horizontalBarLeftAnchor?.constant = self.view.frame.width * x
             self.menuBar.collectionView.collectionViewLayout.invalidateLayout()
             }, completion: { _ in

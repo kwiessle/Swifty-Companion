@@ -28,6 +28,9 @@ class UserCell: UITableViewCell {
                 self.level.text = "level : \(String(level))"
                 self.progress.progress = Float(level.truncatingRemainder(dividingBy: 1.0))
             }
+            if let wallet = self.user?.wallet { self.wallet.text = "\(wallet) ₩"}
+            if let points = self.user?.correctionPoint { self.points.text = "\(points) ₽"}
+            
         }
     }
     
@@ -78,6 +81,32 @@ class UserCell: UITableViewCell {
         label.text = "Unavailable"
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let wallet : UILabel = {
+        let label = UILabel()
+        label.backgroundColor = UIColor(white: 0, alpha: 0.4)
+        label.layer.cornerRadius = 5
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor(white: 0.7, alpha: 0.5).cgColor
+        label.textColor = .white
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.clipsToBounds = true
+        return label
+    }()
+    
+    let points : UILabel = {
+        let label = UILabel()
+        label.backgroundColor = UIColor(white: 0, alpha: 0.4)
+        label.layer.cornerRadius = 5
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor(white: 0.7, alpha: 0.5).cgColor
+        label.textColor = .white
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.clipsToBounds = true
         return label
     }()
     
@@ -150,6 +179,8 @@ class UserCell: UITableViewCell {
                 addSubview(name)
                 addSubview(level)
                 addSubview(progress)
+                addSubview(wallet)
+                addSubview(points)
                 addSubview(location)
         
                 setLayout()
@@ -164,9 +195,20 @@ class UserCell: UITableViewCell {
         shadowView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -22.5).isActive = true
         shadowView.heightAnchor.constraint(equalToConstant: 390).isActive = true
         
+        wallet.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        wallet.widthAnchor.constraint(equalToConstant: 55).isActive = true
+        wallet.topAnchor.constraint(equalTo: shadowView.topAnchor, constant: 30).isActive = true
+        wallet.leftAnchor.constraint(equalTo: shadowView.leftAnchor, constant: 30).isActive = true
+        
+        
+        points.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        points.widthAnchor.constraint(equalToConstant: 55).isActive = true
+        points.topAnchor.constraint(equalTo: shadowView.topAnchor, constant: 30).isActive = true
+        points.rightAnchor.constraint(equalTo: shadowView.rightAnchor, constant: -30).isActive = true
+        
         picture.widthAnchor.constraint(equalToConstant: 140).isActive = true
         picture.heightAnchor.constraint(equalToConstant: 140).isActive = true
-        picture.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 65).isActive = true
+        picture.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
         picture.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         name.topAnchor.constraint(equalTo: picture.bottomAnchor, constant: 10).isActive = true
@@ -187,7 +229,7 @@ class UserCell: UITableViewCell {
         progress.widthAnchor.constraint(equalToConstant: 200).isActive = true
         
         loginLogo.topAnchor.constraint(equalTo: location.bottomAnchor, constant: 85).isActive = true
-        loginLogo.leftAnchor.constraint(equalTo:  leftAnchor, constant: 80).isActive = true
+        loginLogo.leftAnchor.constraint(equalTo:  leftAnchor, constant: 60).isActive = true
         loginLogo.heightAnchor.constraint(equalToConstant: 20).isActive = true
         loginLogo.widthAnchor.constraint(equalToConstant: 20).isActive = true
         
@@ -195,7 +237,7 @@ class UserCell: UITableViewCell {
         loginItem.leftAnchor.constraint(equalTo: loginLogo.rightAnchor, constant: 20).isActive = true
         
         phoneLogo.topAnchor.constraint(equalTo: loginLogo.bottomAnchor, constant: 20).isActive = true
-        phoneLogo.leftAnchor.constraint(equalTo:  leftAnchor, constant: 80).isActive = true
+        phoneLogo.leftAnchor.constraint(equalTo:  leftAnchor, constant: 60).isActive = true
         phoneLogo.heightAnchor.constraint(equalToConstant: 20).isActive = true
         phoneLogo.widthAnchor.constraint(equalToConstant: 20).isActive = true
         
@@ -203,7 +245,7 @@ class UserCell: UITableViewCell {
         phoneItem.leftAnchor.constraint(equalTo: phoneLogo.rightAnchor, constant: 20).isActive = true
         
         mailLogo.topAnchor.constraint(equalTo: phoneLogo.bottomAnchor, constant: 20).isActive = true
-        mailLogo.leftAnchor.constraint(equalTo:  leftAnchor, constant: 80).isActive = true
+        mailLogo.leftAnchor.constraint(equalTo:  leftAnchor, constant: 60).isActive = true
         mailLogo.heightAnchor.constraint(equalToConstant: 20).isActive = true
         mailLogo.widthAnchor.constraint(equalToConstant: 20).isActive = true
         

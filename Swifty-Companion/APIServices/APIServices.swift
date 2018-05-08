@@ -20,6 +20,13 @@ struct Token : Decodable {
     }
 }
 
+struct TokenInfos : Decodable {
+    let expireIn : Int?
+    
+    private enum CodingKeys : String, CodingKey {
+        case expireIn = "expires_in_seconds"
+    }
+}
 
 
 final class APIServices {
@@ -33,10 +40,25 @@ final class APIServices {
  
     func createRequest(for route: String) -> URLRequest? {
         guard let url = URL(string: "\(host)\(route)") else { return nil }
-        guard let token = token?.key else { return nil }
+        guard let token = token?.key else { print(self.token?.key); return nil }
         var request = URLRequest(url: url)
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         return request
+    }
+    
+    func getTokenInfos(completion: @escaping(Bool) -> Void) {
+        guard let request = createRequest(for: "/oauth/token/info") else {
+            completion(false)
+            return
+        }
+        RequestService.shared.get(req: request, for: TokenInfos.self) { infos in
+            print("Expire in : \(infos?.expireIn)")
+            guard infos != nil else {
+                completion(false)
+                return
+            }
+            completion(true)
+        }
     }
     
     func getToken(completion: @escaping(Bool) -> Void) {

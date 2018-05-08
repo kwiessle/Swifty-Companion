@@ -22,6 +22,8 @@ struct User: Decodable {
     let imageUrl : String
     let cursus : [Cursus]
     let projects : [Project]
+    let staff : Bool
+  
 
 
     
@@ -32,7 +34,7 @@ struct User: Decodable {
         case imageUrl = "image_url"
         case cursus = "cursus_users"
         case projects = "projects_users"
-
+        case staff = "staff?"
     }
 }
 
