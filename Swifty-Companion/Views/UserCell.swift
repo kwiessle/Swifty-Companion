@@ -23,6 +23,7 @@ class UserCell: UITableViewCell {
             else { self.location.text = "Unavailable" }
             if let login = self.user?.login { self.loginItem.text = login }
             if let phone = self.user?.phone { self.phoneItem.text = phone }
+            else { self.phoneItem.text = "Unavailable" }
             if let mail = self.user?.email { self.mailItem.text = mail }
             if let level = self.user?.cursus[0].level {
                 self.level.text = "level : \(String(level))"
@@ -135,6 +136,7 @@ class UserCell: UITableViewCell {
     
     let phoneItem : UILabel = {
         let label = UILabel()
+        label.text = "unavailable"
         label.textColor = ZDTools.shared.colors.font
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

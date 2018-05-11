@@ -51,13 +51,16 @@ final class APIServices {
             completion(false)
             return
         }
-        RequestService.shared.get(req: request, for: TokenInfos.self) { infos in
-            print("Expire in : \(infos?.expireIn)")
-            guard infos != nil else {
+        RequestService.shared.get(req: request, for: TokenInfos.self) { data in
+            print("Expire in : \(data?.expireIn)")
+            guard data != nil else {
                 completion(false)
                 return
             }
-            completion(true)
+            guard let infos = data else { completion(false); return }
+            guard let expiration = infos.expireIn else { completion(false); return }
+            if expiration > 20 { completion(true); return }
+            completion(false)
         }
     }
     

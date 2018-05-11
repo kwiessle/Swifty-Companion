@@ -26,6 +26,10 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
         return  0
     }()
     
+    var selectedIndex : Int = {
+       return 0
+    }()
+    
     lazy var menuBar : Menu = {
         var menu = Menu()
         menu.translatesAutoresizingMaskIntoConstraints = false
@@ -79,6 +83,7 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
     func fetchUser() {
         APIServices.shared.getTokenInfos { isValid in
             if isValid {
+                print("use valid token")
                 guard let login = self.target else { return }
                 guard let request = APIServices.shared.createRequest(for: "/v2/users/\(login)") else { return }
                 RequestService.shared.get(req: request, for: User.self) { [unowned self] data in
@@ -94,6 +99,7 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
                 }
             }
             else {
+                print("asking for a new token")
                 APIServices.shared.getToken(completion: { _ in
                     self.fetchUser()
                 })
@@ -106,7 +112,7 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
     func scrollToMenuIndex(index: Int) {
         let indexPath = IndexPath(item: index, section: 0)
         collectionView?.scrollToItem(at: indexPath, at: [], animated: true)
-        
+        selectedIndex = index
         setTitleForMenuIndex(index: index)
     }
     
@@ -131,7 +137,7 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
         let indexPath = IndexPath(item: Int(index), section: 0)
         
         menuBar.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
-        
+        selectedIndex = Int(index)
         setTitleForMenuIndex(index: Int(index))
     }
     
@@ -161,7 +167,6 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: loadingCellID, for: indexPath) as! LoadingCell
         cell.loadingWheel.startAnimating()
         return cell
-
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -173,17 +178,13 @@ class ProfilController : UICollectionViewController, UICollectionViewDelegateFlo
         let x = self.scrollX / self.view.frame.width
         coordinator.animate(alongsideTransition: { [unowned self] _ in
             self.collectionView?.collectionViewLayout.invalidateLayout()
-            self.collectionView?.reloadData()
             self.menuBar.horizontalBarLeftAnchor?.constant = self.view.frame.width * x
             self.menuBar.collectionView.collectionViewLayout.invalidateLayout()
             }, completion: { _ in
                 self.scrollX = x * self.view.frame.width
-                
+                self.scrollToMenuIndex(index: self.selectedIndex)
         })
-        
-        
     }
-
 }
 
 
